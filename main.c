@@ -4,7 +4,7 @@
 
 int main() {
 
-    printf("aisudhaisduiashidsh %d", soma());
+    printf("Hello Mamacos anonimos %d", soma());
 
     return 0;
 }
