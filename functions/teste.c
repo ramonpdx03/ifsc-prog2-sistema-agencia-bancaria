@@ -4,8 +4,8 @@ int soma() {
 
     int a, b;
 
-    a = 2;
-    b = 37;
+    a = 40;
+    b = 586;
     
     return (a + b);
 }
