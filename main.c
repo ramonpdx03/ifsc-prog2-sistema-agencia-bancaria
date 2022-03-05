@@ -1,20 +1,35 @@
 #include <stdio.h>
+#include <string.h>
 
-#include "functions/teste.c"
+// --- FUNCTIONS --- //
+#include "functions/nome_do_banco.h"
+//
 
 int main() {
+    int option;
 
-    int a, b, c, d, e;
-    
-    printf("Hello mamacos fdp %d", soma());
+    do {
+        printf("\nBem Vindo ao %s!\n\n1 - Cadastro\n2 - Movimentacoes da conta\n3 - Editar\n4 - Consulta\n5 - Encerrar sessao\n\nEscolha uma opcao: ", nome_do_banco());
+        scanf("%d", &option);
 
-    a = 1;
-    b = 2;
-    c = 3;
-    d = 4;
-    e = a+b+c*d;
-
-    printf("\nToma essa merda ai caralho: %d", e);
+        switch (option) {
+            case 1:
+                printf("placeholder cadastrar");
+                break;
+            case 2:
+                printf("placeholder editar");
+                break;
+            case 3:
+                printf("placeholder movimentacoes");
+                break;
+            case 4:
+                printf("placeholder consulta");
+                break;
+            case 5:
+                printf("\nVolte Sempre!");
+                break;
+        }
+    } while (option != 5);
 
     return 0;
 }
