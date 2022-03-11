@@ -1,17 +1,16 @@
-#include <stdio.h>
-#include <string.h>
+#include "../header.h"
 
-int nome_do_banco() {
-    char nome_do_banco[255] = "";
-    char a[255];
+const char *nome_banco() {
+    static char nome[40] = "";
+    char format[40];
     FILE *pFile = fopen(".\\files\\nome_do_banco.txt", "r");
 
     //# adiciona espacos entre as palavras do arquivo;
-    while (fscanf(pFile, "%s", a) != EOF) {
-        strcat(a, " ");
-        strcat(nome_do_banco, a);
+    while (fscanf(pFile, "%s", format) != EOF) {
+        strcat(format, " ");
+        strcat(nome, format);
     }
-    nome_do_banco[strlen(nome_do_banco) - 1] = '\0'; //# remove o ultimo caractere (espaco);
+    nome[strlen(nome) - 1] = '\0'; //# remove o ultimo caractere (espaco);
 
     //# pega o length do arquivo e checa se está vazio;
     int len = ftell(pFile);
@@ -22,5 +21,5 @@ int nome_do_banco() {
 
     fclose(pFile); //# colocar no final das funções file;
 
-    return nome_do_banco;
+    return nome;
 }
