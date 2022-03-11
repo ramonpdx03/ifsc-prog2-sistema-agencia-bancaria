@@ -3,7 +3,7 @@
 const char *nome_banco() {
     static char nome[40] = "";
     char format[40];
-    FILE *pFile = fopen(".\\files\\nome_do_banco.txt", "r");
+    FILE *pFile = fopen(".\\MENU\\nome_do_banco.txt", "r");
 
     //# adiciona espacos entre as palavras do arquivo;
     while (fscanf(pFile, "%s", format) != EOF) {
