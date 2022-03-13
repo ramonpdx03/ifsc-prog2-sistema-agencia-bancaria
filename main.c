@@ -13,7 +13,6 @@ void main() {
             case 1:
                 system("cls");
                 cadastro();
-                system("pause");
                 break;
             case 2:
                 system("cls");
@@ -33,7 +32,6 @@ void main() {
             case 5:
                 system("cls");
                 printf("\nVolte Sempre!");
-                system("pause");
                 break;
         }
     } while (option_main != 5);
