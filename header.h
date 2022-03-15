@@ -18,6 +18,11 @@ typedef struct {
     int situacao;
     float saldo;
 } Cliente;
+Cliente *conta[100];
+//# MOVIMENTACOES
+void movimentacoes();
+//# CONSULTA
+void consulta();
 //
 
 #endif

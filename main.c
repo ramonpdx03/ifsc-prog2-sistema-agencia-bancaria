@@ -6,7 +6,13 @@ void main() {
     do {
         system("cls"); //# limpa o console
 
-        printf("Bem Vindo ao %s!\n\n1 - Cadastro\n2 - Movimentacoes da conta\n3 - Editar\n4 - Consulta\n5 - Encerrar sessao\n\nQual operacao deseja fazer? ", nome_agencia());
+        printf("Bem Vindo ao %s!\n\n", nome_agencia());
+        printf("1 - Cadastro\n");
+        printf("2 - Movimentacoes da conta\n");
+        printf("3 - Editar\n");
+        printf("4 - Consulta\n");
+        printf("5 - Encerrar sessao\n\n");
+        printf("Qual operacao deseja fazer? ");
         scanf("%d", &option_main);
 
         switch (option_main) {
@@ -16,7 +22,7 @@ void main() {
                 break;
             case 2:
                 system("cls");
-                printf("placeholder movimentacoes");
+                movimentacoes();
                 system("pause");
                 break;
             case 3:
@@ -26,7 +32,7 @@ void main() {
                 break;
             case 4:
                 system("cls");
-                printf("placeholder consulta");
+                consulta();
                 system("pause");
                 break;
             case 5:

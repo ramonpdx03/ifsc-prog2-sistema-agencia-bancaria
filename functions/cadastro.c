@@ -1,20 +1,6 @@
 #include "../header.h"
 
-int nova_conta(Cliente *CONTA, int COD_CONTA, char *NOME, char *TELEFONE, char *CPF, int SITUACAO, float SALDO) {
-    if (!CONTA) return 0;
-
-    CONTA->cod_conta = COD_CONTA;
-    CONTA->nome = NOME;
-    CONTA->telefone = TELEFONE;
-    CONTA->cpf = CPF;
-    CONTA->situacao = SITUACAO;
-    CONTA->saldo = SALDO;
-
-    return 1;
-}
-
 void cadastro() {
-    Cliente *conta[100];
     int val_cod_conta;
     char val_nome[70];
     char val_telefone[20];
@@ -30,14 +16,14 @@ void cadastro() {
     for (i = 0; i < max; i++) {
         system("cls");
 
-        if (i > 9) {
+        // if (i > 9) {
             printf("Deseja registrar mais uma conta? (1 - Sim / 2- Nao) ");
             scanf("%d", &sair);
             system("cls");
-        } else if (i == max) {
-            printf("Limite de contas atingido!");
-            system("pause");
-        }
+        // } else if (i == max) {
+            // printf("Limite de contas atingido!");
+            // system("pause");
+        // }
 
         if (sair == 2) break;
 
@@ -64,10 +50,13 @@ void cadastro() {
         scanf("%f", &val_saldo);
 
         conta[i] = malloc(sizeof(Cliente));
-        if (nova_conta(conta[i], val_cod_conta, val_nome, val_telefone, val_cpf, val_situacao, val_saldo) == 0) {
-            printf("Erro ao registrar conta");
-            break;
-        }
+
+        conta[i]->cod_conta = val_cod_conta;
+        conta[i]->nome = val_nome;
+        conta[i]->telefone = val_telefone;
+        conta[i]->cpf = val_cpf;
+        conta[i]->situacao = val_situacao;
+        conta[i]->saldo = val_saldo;
     }
 
     printf("\n");
