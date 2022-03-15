@@ -1,84 +1,106 @@
 #include "../header.h"
 
 void saque() {
-    int p, saque;
-    printf("Insira o numero da conta: ");
+    int saque, p;
+    printf("\nInsira o numero da conta: ");
     scanf("%d", &p);
-    if (conta[p]->situacao = 2) {
-        printf("Conta inativa!");
-    }
 
-    printf("\nQual a quantidade que deseja sacar? ");
-    scanf("%d", &saque);
-    if (saque <= 0) {
-        printf("Insira um valor valido!");
-    }
-    if (conta[p]->saldo < saque) {
-        printf("Saldo insuficiente para realizar essa operacao!");
-    }
+    switch (conta[p]->situacao) {
+        case 1:
+            printf("\nQual a quantidade que deseja sacar? R$");
+            scanf("%d", &saque);
+                if (saque <= 0) {
+                    printf("\nInsira um valor valido!\n\n");
+                    break;
+                }
+            else
+                if (conta[p]->saldo < saque) {
+                    printf("\nSaldo insuficiente para realizar essa operacao!\n");
+                    break;
+                }
 
-    conta[p]->saldo = conta[p]->saldo - saque;
+            conta[p]->saldo = conta[p]->saldo - saque;
 
-    printf("Operacao realizada com sucesso!\n");
-    printf("Saldo atual: %.2f", conta[p]->saldo);
+            printf("\nOperacao realizada com sucesso!");
+            printf("\nSaldo atual: R$%.2f\n\n", conta[p]->saldo);
+        break;
+
+        case 2:
+            printf("\nConta inativa!\n\n");
+            break;
+        }
 
 }
 
 void deposito() {
-    int p, deposito;
-    printf("Insira o numero da conta: ");
+    int deposito, p;
+    printf("\nInsira o numero da conta: ");
     scanf("%d", &p);
 
-    if (conta[p]->situacao = 2) {
-        printf("Conta inativa!");
-    }
+    switch (conta[p]->situacao) {
+        case 1:
+            printf("\nQual a quantidade que deseja depositar? R$");
+            scanf("%d", &deposito);
+                if (deposito <= 0) {
+                    printf("\nInsira um valor valido!\n\n");
+                    break;
+                }
 
-    printf("\nQual a quantidade que deseja depositar? ");
-    scanf("%d", &deposito);
-    if (deposito <= 0) {
-        printf("Insira um valor valido!");
-    }
+            conta[p]->saldo = conta[p]->saldo + deposito;
 
-    conta[p]->saldo = conta[p]->saldo + deposito;
+            printf("\nOperacao realizada com sucesso!");
+            printf("\nSaldo atual: R$%.2f\n\n", conta[p]->saldo);
+        break;
 
-    printf("Operacao realizada com sucesso!\n");
-    printf("Saldo atual: %.2f", conta[p]->saldo);
+        case 2:
+            printf("\nConta inativa!\n\n");
+            break;
+        }
 }
 
 void pagamento() {
-    int p, pagamento;
-    printf("Insira o numero da conta");
+    int pagamento, p;
+    printf("\nInsira o numero da conta: ");
     scanf("%d", &p);
-    if (conta[p]->situacao = 2) {
-        printf("Conta inativa!");
-    }
 
-    printf("\nQual a quantidade que deseja pagar? ");
-    scanf("%d", &pagamento);
-    if (pagamento <= 0) {
-        printf("Insira um valor valido!");
-    }
+    switch (conta[p]->situacao) {
+        case 1:
+            printf("\nQual a quantidade que deseja pagar? R$");
+            scanf("%d", &pagamento);
+                if (pagamento <= 0) {
+                    printf("\nInsira um valor valido!\n\n");
+                    break;
+                }
+            else
+                if (conta[p]->saldo < pagamento) {
+                    printf("\nSaldo insuficiente para realizar essa operacao!\n");
+                    break;
+                }
 
-    if (conta[p]->saldo < pagamento) {
-        printf("Saldo insuficiente para realizar essa operacao!");
-    }
+            conta[p]->saldo = conta[p]->saldo - pagamento;
 
-    conta[p]->saldo = conta[p]->saldo - pagamento;
+            printf("\nOperacao realizada com sucesso!");
+            printf("\nSaldo atual: R$%.2f\n\n", conta[p]->saldo);
+        break;
 
-    printf("Operacao realizada com sucesso!\n");
-    printf("Saldo atual: %.2f", conta[p]->saldo);
+        case 2:
+            printf("\nConta inativa!\n\n");
+            break;
+        }
 }
+
 
 void movimentacoes() {
 
-    int operacao;
+    int operacao, p;
 
     do {
-        printf("Que tipo de operacao deseja realizar?");
+        printf("Que tipo de operacao deseja realizar? ");
         printf("\n\n1 - Saque");
         printf("\n2 - Deposito");
         printf("\n3 - Pagamento");
-        printf("\n\nSelecione uma opcao ");
+        printf("\n4 - Voltar");
+        printf("\n\nSelecione uma opcao: ");
         scanf("%d", &operacao);
 
         switch (operacao) {
@@ -90,6 +112,8 @@ void movimentacoes() {
                     break;
                 case 3:
                     pagamento();
+                    break;
+                default:
                     break;
             }
     } while (operacao != 4);
